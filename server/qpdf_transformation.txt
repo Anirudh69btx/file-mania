@@ -1,0 +1,31 @@
+﻿The options below tell qpdf to apply transformations that change
+the structure without changing the content.
+
+Related options:
+  --coalesce-contents: combine content streams
+  --compress-streams: compress uncompressed streams
+  --compression-level: set compression level for flate
+  --copy-encryption: copy another file's encryption details
+  --decode-level: control which streams to uncompress
+  --decrypt: remove encryption from input file
+  --encrypt: start encryption options
+  --encryption-file-password: supply password for --copy-encryption
+  --externalize-inline-images: convert inline to regular images
+  --force-version: set output PDF version
+  --ii-min-bytes: set minimum size for --externalize-inline-images
+  --jpeg-quality: set jpeg quality level for jpeg
+  --linearize: linearize (web-optimize) output
+  --min-version: set minimum PDF version
+  --newline-before-endstream: force a newline before endstream
+  --no-original-object-ids: omit original object IDs in qdf
+  --normalize-content: fix newlines in content streams
+  --object-streams: control use of object streams
+  --preserve-unreferenced: preserve unreferenced objects
+  --preserve-unreferenced-resources: use --remove-unreferenced-resources=no
+  --qdf: enable viewing PDF code in a text editor
+  --recompress-flate: uncompress and recompress flate
+  --remove-restrictions: remove security restrictions from input file
+  --remove-unreferenced-resources: remove unreferenced page resources
+  --stream-data: control stream compression
+
+For detailed help, visit the qpdf manual: https://qpdf.readthedocs.io

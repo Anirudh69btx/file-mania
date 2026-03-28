@@ -1,0 +1,12 @@
+﻿Advanced control options control qpdf's behavior in ways that would
+normally never be needed by a user but that may be useful to
+developers or people investigating problems with specific files.
+
+Related options:
+  --ignore-xref-streams: use xref tables rather than streams
+  --password-is-hex-key: provide hex-encoded encryption key
+  --password-mode: tweak how qpdf encodes passwords
+  --suppress-password-recovery: don't try different password encodings
+  --suppress-recovery: suppress error recovery
+
+For detailed help, visit the qpdf manual: https://qpdf.readthedocs.io

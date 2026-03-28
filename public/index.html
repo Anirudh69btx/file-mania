@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Mania 🚀 - 5GB PDF Tools</title>
+    <meta name="description" content="15-in-1 PDF Suite - 5GB Files - Batch Processing - 100% FREE">
+    <link rel="manifest" href="/pwa-manifest.json">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-overlay"></div>
+    <canvas id="particles-canvas"></canvas>
+
+    <header>
+        <div class="logo-container">
+            <img src="https://t4.ftcdn.net/jpg/03/94/95/81/360_F_394958149_W3QEgFeS41wABB59U9O80yFiPaGSndmA.jpg" alt="File Mania Logo" class="logo">
+            <h1 class="title">FILE MANIA</h1>
+        </div>
+        <div class="theme-selector">
+            <button class="theme-btn" data-theme="pink"   style="background-color:#ff1493;"></button>
+            <button class="theme-btn" data-theme="yellow" style="background-color:#ffd700;"></button>
+            <button class="theme-btn" data-theme="red"    style="background-color:#ff4500;"></button>
+            <button class="theme-btn" data-theme="black"  style="background-color:#333333; border:1px solid var(--accent-primary);"></button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="tools-grid">
+
+            <!-- Merge PDF -->
+            <div class="tool-card" data-tool="merge" data-accept=".pdf" data-multiple="true">
+                <i class="fas fa-layer-group icon-pdf"></i>
+                <h2>Merge PDF</h2>
+                <p>Combine multiple PDFs into one.</p>
+            </div>
+
+            <!-- Split PDF — FIXED: fromPage / toPage inputs with example hint -->
+            <div class="tool-card" data-tool="split" data-accept=".pdf"
+                 data-params='[
+                   {"name":"fromPage","label":"From Page","type":"number","placeholder":"e.g. 1","hint":"Enter starting page number"},
+                   {"name":"toPage","label":"To Page","type":"number","placeholder":"e.g. 10","hint":"Enter ending page number"}
+                 ]'
+                 data-hint="Example: From 1 To 10 → extracts pages 1 through 10">
+                <i class="fas fa-cut icon-pdf"></i>
+                <h2>Split PDF</h2>
+                <p>Extract a page range into a new file.</p>
+            </div>
+
+            <!-- Compress PDF -->
+            <div class="tool-card" data-tool="compress" data-accept=".pdf">
+                <i class="fas fa-compress icon-pdf"></i>
+                <h2>Compress PDF</h2>
+                <p>Reduce file size with smart compression.</p>
+            </div>
+
+            <!-- Rotate PDF -->
+            <div class="tool-card" data-tool="rotate" data-accept=".pdf"
+                 data-params='[{"name":"degrees","label":"Rotation Angle","type":"select","options":["90","180","270"],"hint":"Choose rotation angle"}]'>
+                <i class="fas fa-sync-alt icon-pdf"></i>
+                <h2>Rotate PDF</h2>
+                <p>Rotate pages by 90, 180, or 270°.</p>
+            </div>
+
+            <!-- Unlock PDF -->
+            <div class="tool-card" data-tool="unlock" data-accept=".pdf"
+                 data-params='[{"name":"password","label":"Current Password","type":"password","placeholder":"Enter current password","hint":"Leave blank if the PDF has no password"}]'>
+                <i class="fas fa-lock-open icon-pdf"></i>
+                <h2>Unlock PDF</h2>
+                <p>Remove PDF password protection.</p>
+            </div>
+
+            <!-- Protect PDF -->
+            <div class="tool-card" data-tool="protect" data-accept=".pdf"
+                 data-params='[{"name":"password","label":"New Password","type":"password","placeholder":"Enter desired password","hint":"Min 4 characters recommended"}]'>
+                <i class="fas fa-lock icon-pdf"></i>
+                <h2>Protect PDF</h2>
+                <p>Add password protection.</p>
+            </div>
+
+            <!-- PDF to Word -->
+            <div class="tool-card" data-tool="pdf-to-word" data-accept=".pdf">
+                <i class="fas fa-file-word icon-word"></i>
+                <h2>PDF to Word</h2>
+                <p>Convert PDF to DOCX.</p>
+            </div>
+
+            <!-- Word to PDF -->
+            <div class="tool-card" data-tool="word-to-pdf" data-accept=".docx">
+                <i class="fas fa-file-pdf icon-word"></i>
+                <h2>Word to PDF</h2>
+                <p>Convert DOCX to PDF documents.</p>
+            </div>
+
+            <!-- PDF to JPG -->
+            <div class="tool-card" data-tool="pdf-to-jpg" data-accept=".pdf">
+                <i class="fas fa-file-image icon-jpg"></i>
+                <h2>PDF to JPG</h2>
+                <p>Extract pages as images.</p>
+            </div>
+
+            <!-- JPG to PDF -->
+            <div class="tool-card" data-tool="jpg-to-pdf" data-accept=".jpg,.jpeg,.png,.webp" data-multiple="true">
+                <i class="fas fa-file-pdf icon-jpg"></i>
+                <h2>JPG to PDF</h2>
+                <p>Convert batch images to PDF.</p>
+            </div>
+
+            <!-- Add Watermark -->
+            <div class="tool-card" data-tool="watermark" data-accept=".pdf"
+                 data-params='[{"name":"watermarkText","label":"Watermark Text","type":"text","placeholder":"e.g. CONFIDENTIAL","hint":"Text will be stamped diagonally on every page"}]'>
+                <i class="fas fa-stamp icon-pdf"></i>
+                <h2>Add Watermark</h2>
+                <p>Stamp text onto every page.</p>
+            </div>
+
+            <!-- Remove Pages — FIXED: range notation example -->
+            <div class="tool-card" data-tool="remove-pages" data-accept=".pdf"
+                 data-params='[{"name":"pages","label":"Pages to Remove","type":"text","placeholder":"e.g. 1-3, 5, 8-10","hint":"Example: 1-10, 15-20, 25 — supports ranges and single pages"}]'>
+                <i class="fas fa-minus-square icon-pdf"></i>
+                <h2>Remove Pages</h2>
+                <p>Delete specific pages or ranges.</p>
+            </div>
+
+            <!-- Extract Pages — FIXED: range notation example -->
+            <div class="tool-card" data-tool="extract-pages" data-accept=".pdf"
+                 data-params='[{"name":"pages","label":"Pages to Extract","type":"text","placeholder":"e.g. 1-5, 8, 10-12","hint":"Example: 1-5, 8, 10-12 — supports ranges and single pages"}]'>
+                <i class="fas fa-external-link-square-alt icon-pdf"></i>
+                <h2>Extract Pages</h2>
+                <p>Save specific pages as a new PDF.</p>
+            </div>
+
+            <!-- Page Numbers -->
+            <div class="tool-card" data-tool="page-numbers" data-accept=".pdf">
+                <i class="fas fa-sort-numeric-down icon-pdf"></i>
+                <h2>Page Numbers</h2>
+                <p>Add "X / N" page numbers to every page.</p>
+            </div>
+
+            <!-- Edit Metadata -->
+            <div class="tool-card" data-tool="metadata" data-accept=".pdf"
+                 data-params='[
+                   {"name":"title","label":"Document Title","type":"text","placeholder":"e.g. Annual Report 2024","hint":"This sets the PDF's internal title metadata"},
+                   {"name":"author","label":"Author Name","type":"text","placeholder":"e.g. John Doe","hint":"This sets the PDF's internal author metadata"}
+                 ]'>
+                <i class="fas fa-info-circle icon-pdf"></i>
+                <h2>Edit Metadata</h2>
+                <p>Change PDF title, author, and more.</p>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Upload Modal -->
+    <div id="upload-modal" class="modal">
+        <div class="modal-content glass-panel">
+            <span class="close-btn">&times;</span>
+            <h2 id="modal-title">Tool Name</h2>
+            <p id="modal-desc">Tool description</p>
+
+            <!-- Under-development banner (hidden by default) -->
+            <div id="dev-banner" class="dev-banner hidden">
+                <i class="fas fa-hard-hat"></i>
+                <strong>Under Development</strong> — We're sorry! This feature is currently being built. We're working hard to bring it to you soon. 🚧
+            </div>
+
+            <!-- Tool-level hint (shown when data-hint is on the card) -->
+            <p id="tool-hint-text" class="tool-hint hidden"></p>
+
+            <div id="dynamic-params-container" class="params-container"></div>
+
+            <div id="drop-zone" class="drop-zone">
+                <i class="fas fa-cloud-upload-alt fa-3x"></i>
+                <h3>Drag &amp; Drop Files Here</h3>
+                <p>Up to 5GB Single File &bull; Max 5 Files (1GB each)</p>
+                <input type="file" id="file-input" hidden>
+                <button class="btn browse-btn" onclick="document.getElementById('file-input').click()">Browse Files</button>
+            </div>
+
+            <div id="file-list" class="file-list"></div>
+
+            <!-- Inline validation error -->
+            <p id="validation-error" class="validation-error hidden"></p>
+
+            <div id="progress-container" class="progress-container hidden">
+                <div class="progress-bar-bg">
+                    <div id="progress-bar" class="progress-bar-fill"></div>
+                </div>
+                <div class="progress-stats">
+                    <span id="progress-text">0%</span>
+                    <span id="file-size-display">0 MB / 0 MB</span>
+                </div>
+                <p id="status-text" class="status-text">Processing...</p>
+            </div>
+
+            <button id="process-btn" class="btn primary-btn" disabled>Process Files</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
